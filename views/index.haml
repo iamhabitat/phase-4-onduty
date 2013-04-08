@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %title= "Phase 4 On Duty"
+    %link{ :href => "/css/main.css", :media => "screen", :rel => "stylesheet" }
+  %body
+    %header
+      %h1 Phase 4 On Duty
+
+    .container
+      - @board.lists.each do |list|
+        %h2= list.name
+        - list.cards.each do |card|
+          %h3= card.name
+          - card.members.each do |member|
+            = member.full_name
+            <br>
+      
+    %footer
+      %p
+        Copyright &copy;
+        = Time.now.year
+        Dev Bootcamp
