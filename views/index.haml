@@ -3,6 +3,10 @@
   %head
     %title= "Phase 4 On Duty"
     %link{ :href => "/css/main.css", :media => "screen", :rel => "stylesheet" }
+    :javascript
+      // reload every 5 minutes
+      var reload = function() { window.location.reload(); }
+      setInterval(reload, 1000*60*5);
   %body
     %header
       %h1 Phase 4 On Duty
@@ -15,6 +19,7 @@
             .card
               %h3= card.name
               - card.members.each do |member|
+                %img{ :src => member.avatar_url }
                 = member.full_name
                 %br
       

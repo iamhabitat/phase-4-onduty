@@ -4,6 +4,8 @@ require 'trello'
 
 enable :sessions
 
+TRELLO_BOARD = "5150ea649171af5e5b009c64"
+
 Trello.configure do |config|
   config.developer_public_key = ENV['TRELLO_KEY']
   config.member_token = ENV['TRELLO_TOKEN']
@@ -18,11 +20,7 @@ end
 
 
 get '/' do
-  unless session[:cached_board]# and ((session[:cached_board][0] - Time.now) / 300) > 1
-    puts "updating board"
-    session[:cached_board] = [Time.now, Trello::Board.find("5150ea649171af5e5b009c64")]
-  end
-  @board = session[:cached_board][1]
+  @board = Trello::Board.find(TRELLO_BOARD)
 
   haml :index
 end
