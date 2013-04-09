@@ -16,11 +16,15 @@ before do
   unless ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN']
     raise "You need to set ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN']!"
   end
+  @board = Trello::Board.find(TRELLO_BOARD)
+  @today = Time.now
 end
 
 
 get '/' do
-  @board = Trello::Board.find(TRELLO_BOARD)
+  haml :day
+end
 
-  haml :index
+get '/week' do
+  haml :week  
 end
