@@ -2,11 +2,22 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.container {
+body {
   width: 75%;
   margin: 20px auto;
 }
 
 footer {
+  clear: both;
+  text-align: center;
+  margin-top: 100px;
+}
 
+.list {
+  float: left;
+  margin-right: 20px;
+}
+
+.card {
+  min-height: 150px;
 }

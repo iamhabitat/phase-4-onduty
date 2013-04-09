@@ -9,12 +9,14 @@
 
     .container
       - @board.lists.each do |list|
-        %h2= list.name
-        - list.cards.each do |card|
-          %h3= card.name
-          - card.members.each do |member|
-            = member.full_name
-            <br>
+        .list
+          %h2= list.name
+          - list.cards.each do |card|
+            .card
+              %h3= card.name
+              - card.members.each do |member|
+                = member.full_name
+                %br
       
     %footer
       %p
