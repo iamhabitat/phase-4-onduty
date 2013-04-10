@@ -10,4 +10,10 @@ Once you've done so, you can set the Heroku environment variables as appropriate
 $ heroku config:set TRELLO_KEY=<YOUR_KEY> TRELLO_TOKEN=<YOUR_TOKEN>
 ```
 
+Please note that the app is also configured for the Pacific Time Zone:
+
+```bash
+$ heroku config:add TZ="America/Los_Angeles"
+```
+
 Cheers!
