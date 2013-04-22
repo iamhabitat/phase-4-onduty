@@ -4,7 +4,7 @@ require 'trello'
 
 enable :sessions
 
-TRELLO_BOARD = "5159cfba02a505cd710013ed"
+TRELLO_BOARD = "51758140f8e8367877009054"
 
 Trello.configure do |config|
   config.developer_public_key = ENV['TRELLO_KEY']
