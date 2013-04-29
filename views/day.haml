@@ -2,7 +2,7 @@
 %html
   %head
     %title= "Phase 4 On Duty"
-    %link{ :href => "/css/main.css", :media => "screen", :rel => "stylesheet" }
+    %link{href: "/css/main.css", media: "screen", rel: "stylesheet"}
     :javascript
       // reload every 5 minutes
       var reload = function() { window.location.reload(); }
@@ -13,7 +13,7 @@
         Phase 4 On Duty for
         = @today.strftime("%A")
       %p
-        %a{:href => "/week"} Go to Weekly View
+        %a{href: "/week"} Go to Weekly View
 
     .container
       - @board.lists.each do |list|
@@ -23,10 +23,10 @@
               .card.daycard
                 %h3= card.name
                 - card.members.each do |member|
-                  %img{:src => member.avatar_url}
+                  %img{src: member.avatar_url}
                   = member.full_name
                   %br
-      
+
     %footer
       %p
         Copyright &copy;
