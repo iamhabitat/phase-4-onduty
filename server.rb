@@ -24,7 +24,3 @@ end
 get '/' do
   haml :day
 end
-
-get '/week' do
-  haml :week
-end
