@@ -2,18 +2,24 @@ require 'sinatra'
 require 'haml'
 require 'trello'
 
-enable :sessions
+# Read in the trello config from the environment. Halts if any config value is
+# missing.
+trello_conf = %w(TRELLO_KEY TRELLO_TOKEN TRELLO_BOARD).
+  reduce({}) do |conf, vname|
+    abort "Please set #{vname} in the environment" unless ENV.has_key? vname
+    conf_key = vname.split('_').last.downcase.to_sym
+    conf.merge! conf_key => ENV[vname]
+  end
 
 Trello.configure do |config|
-  config.developer_public_key = ENV['TRELLO_KEY']
-  config.member_token = ENV['TRELLO_TOKEN']
+  config.developer_public_key = trello_conf[:key]
+  config.member_token = trello_conf[:token]
 end
 
+enable :sessions
+
 before do
-  unless ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN']
-    raise "You need to set ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN'] and ENV['TRELLO_BOARD']!"
-  end
-  @board = Trello::Board.find(ENV['TRELLO_BOARD'])
+  @board = Trello::Board.find trello_conf[:board]
   @today = Time.now
 end
 
