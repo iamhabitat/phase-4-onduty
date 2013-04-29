@@ -16,9 +16,16 @@ Trello.configure do |config|
   config.member_token = TRELLO_CONF[:token]
 end
 
-before do
-  @board = Trello::Board.find TRELLO_CONF[:board]
-  @today = Time.now
+helpers do
+
+  def current_day_of_week
+    Time.now.strftime("%A")
+  end
+
+  def board
+    @board ||= Trello::Board.find TRELLO_CONF[:board]
+  end
+
 end
 
 get '/' do

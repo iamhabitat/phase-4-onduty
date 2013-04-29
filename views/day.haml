@@ -3,26 +3,21 @@
   %head
     %title= "Phase 4 On Duty"
     %link{href: "/css/main.css", media: "screen", rel: "stylesheet"}
-    :javascript
-      // reload every 5 minutes
-      var reload = function() { window.location.reload(); }
-      setInterval(reload, 1000*60*5);
+    %meta{'http-equiv' => "refresh", content: 5}
   %body
     %header
-      %h1
-        Phase 4 On Duty for
-        = @today.strftime("%A")
+      %h1 Phase 4 On Duty for #{ current_day_of_week }
       %p
         %a{href: "/week"} Go to Weekly View
 
     .container
-      - @board.lists.each do |list|
-        - if list.name == @today.strftime("%A")
+      - for list in board.lists
+        - if list.name == current_day_of_week
           .list
-            - list.cards.each do |card|
+            - for card in list.cards
               .card.daycard
                 %h3= card.name
-                - card.members.each do |member|
+                - for member in card.members
                   %img{src: member.avatar_url}
                   = member.full_name
                   %br
