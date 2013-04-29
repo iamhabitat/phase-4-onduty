@@ -16,8 +16,6 @@ Trello.configure do |config|
   config.member_token = trello_conf[:token]
 end
 
-enable :sessions
-
 before do
   @board = Trello::Board.find trello_conf[:board]
   @today = Time.now
