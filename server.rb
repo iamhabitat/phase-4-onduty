@@ -9,7 +9,6 @@ Trello.configure do |config|
   config.member_token = ENV['TRELLO_TOKEN']
 end
 
-
 before do
   unless ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN']
     raise "You need to set ENV['TRELLO_KEY'] and ENV['TRELLO_TOKEN'] and ENV['TRELLO_BOARD']!"
@@ -18,11 +17,10 @@ before do
   @today = Time.now
 end
 
-
 get '/' do
   haml :day
 end
 
 get '/week' do
-  haml :week  
+  haml :week
 end
