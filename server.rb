@@ -18,6 +18,10 @@ end
 
 helpers do
 
+  def todays_timeslots
+    board.lists.find { |l| l.name == current_day_of_week }.try(:cards) or []
+  end
+
   def current_day_of_week
     Time.now.strftime("%A")
   end

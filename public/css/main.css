@@ -2,53 +2,46 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+* { margin: 0; padding: 0; }
+
 body {
   width: 90%;
   margin: 20px auto;
-  text-align: center;
+  background: #eee;
 }
 
-header {
-  text-align: center;
+.timeslot {
+  background: white;
+  margin: 10px -10px;
+  padding: 0 10px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 3px;
 }
 
-header p a {
-  font-size: 0.7em;
-}
-
-footer {
-  clear: both;
-  text-align: center;
-  margin-top: 100px;
-}
-
-.list, .daycard {
+.timeslot .name {
+  display: block;
+  width: 250px;
   float: left;
+  color: #666;
+  border-right: 2px solid #f9f9f9;
   margin-right: 10px;
-  padding-right: 10px;
-  border-right: 1px dotted #222;
+  font-size: 1em;
 }
 
-.container div:last-child {
-  border-right: none;
+.member {
+  display: inline-block;
+  height: 50px;
+  width: 180px;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
-.list h2 {
-  border-bottom: 1px dotted #222;
-  text-align: center;
-}
-
-.card {
-  min-height: 180px;
-}
-
-.card h3 {
-  background-color: #555;
-  color: #eee;
-  text-align: center;
-}
-
-.card img {
-  width: 30px;
-  height: 30px;
+.member .avatar {
+  float: left;
+  margin-top: -1px; /* hack; fucking floats */
+  margin-right: 10px;
+  border-radius: 2px;
+  width: 50px;
+  height: 50px;
 }

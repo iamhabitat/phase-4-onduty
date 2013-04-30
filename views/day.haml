@@ -6,18 +6,13 @@
     %meta{'http-equiv' => "refresh", content: 5}
   %body
     %header
-      %h1 Phase 4 On Duty for #{ current_day_of_week }
-      %p
-        %a{href: "/week"} Go to Weekly View
+      %h1 Phase 4 Students On Duty for #{ current_day_of_week }
 
     .container
-      - for list in board.lists
-        - if list.name == current_day_of_week
-          .list
-            - for card in list.cards
-              .card.daycard
-                %h3= card.name
-                - for member in card.members
-                  %img{src: member.avatar_url}
-                  = member.full_name
-                  %br
+      - for timeslot in todays_timeslots
+        .timeslot
+          %h3.name= timeslot.name
+          - for member in timeslot.members
+            .member
+              %img.avatar{src: member.avatar_url}
+              = member.full_name
