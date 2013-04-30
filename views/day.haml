@@ -13,10 +13,11 @@
       - for timeslot in todays_timeslots
         .timeslot
           %h3.name= timeslot.name
-          - for member in timeslot.members
-            .member
-              %img.avatar{src: member.avatar_url}
-              = member.full_name
+          .members
+            - for member in timeslot.members
+              .member
+                %img.avatar{src: member.avatar_url}
+                %span.name= member.full_name
 
     .perlisism
       = random_perlisism
