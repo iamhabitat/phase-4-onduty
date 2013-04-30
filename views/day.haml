@@ -3,7 +3,7 @@
   %head
     %title= "Phase 4 On Duty"
     %link{href: "/css/main.css", media: "screen", rel: "stylesheet"}
-    %meta{'http-equiv' => "refresh", content: 5}
+    %meta{'http-equiv' => "refresh", content: 10}
   %body
     %header
       %h1 Phase 4 Students On Duty for #{ current_day_of_week }
@@ -16,3 +16,7 @@
             .member
               %img.avatar{src: member.avatar_url}
               = member.full_name
+
+    .perlisism
+      = random_perlisism
+      %span.author - Alan Perlis

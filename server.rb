@@ -2,6 +2,12 @@ require 'sinatra'
 require 'haml'
 require 'trello'
 
+# TODO: visually highlight current timeslot
+
+# http://www.cs.yale.edu/quotes.html
+PERLISISMS = File.read('perlisisms.txt').
+  lines.map(&:chomp).reject(&:empty?).map { |s| s[/\d+\.\s+(.+)/,1] }
+
 # Read in the trello config from the environment. Halts if any config value is
 # missing.
 TRELLO_CONF = %w(TRELLO_KEY TRELLO_TOKEN TRELLO_BOARD).
@@ -28,6 +34,10 @@ helpers do
 
   def board
     @board ||= Trello::Board.find TRELLO_CONF[:board]
+  end
+
+  def random_perlisism
+    PERLISISMS.sample
   end
 
 end
