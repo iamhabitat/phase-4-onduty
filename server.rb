@@ -43,5 +43,6 @@ helpers do
 end
 
 get '/' do
+  headers 'X-Frame-Options' => "GOFORIT"
   haml :day
 end
