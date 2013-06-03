@@ -11,7 +11,7 @@
 
     .container
       - for timeslot in todays_timeslots
-        .timeslot
+        .timeslot{:class => ( 'current' if is_current_timeslot? timeslot )}
           %h3.name= timeslot.name
           .members
             - for member in timeslot.members
