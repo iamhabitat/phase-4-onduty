@@ -2,6 +2,9 @@ require 'sinatra'
 require 'haml'
 require 'trello'
 
+require './current_timeslot'
+include CurrentTimeslot
+
 # TODO: visually highlight current timeslot
 
 # http://www.cs.yale.edu/quotes.html
