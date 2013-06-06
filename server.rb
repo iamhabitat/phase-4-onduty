@@ -5,11 +5,9 @@ require 'trello'
 require './current_timeslot'
 include CurrentTimeslot
 
-# TODO: visually highlight current timeslot
+require './perlisms'
 
-# http://www.cs.yale.edu/quotes.html
-PERLISISMS = File.read('perlisisms.txt').
-  lines.map(&:chomp).reject(&:empty?).map { |s| s[/\d+\.\s+(.+)/,1] }
+# TODO: visually highlight current timeslot
 
 # Read in the trello config from the environment. Halts if any config value is
 # missing.
@@ -39,8 +37,8 @@ helpers do
     @board ||= Trello::Board.find TRELLO_CONF[:board]
   end
 
-  def random_perlisism
-    PERLISISMS.sample
+  def perlisms
+    Perlisms
   end
 
 end
