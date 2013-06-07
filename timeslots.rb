@@ -28,6 +28,7 @@ module Timeslots
   def load
     load_data.
       map { |slot_data| Hashugar.new slot_data }.
+      reject { |slot| slot.name.chars.first == '*' }.
       each { |slot| slot[:current?] = true if CurrentTimeslot.is? slot.name }
   end
 
