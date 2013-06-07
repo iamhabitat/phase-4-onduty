@@ -11,7 +11,7 @@ module CurrentTimeslot
   end
 
   def parse_time_boundaries(timeslot)
-    begin_time, end_time = Time.parse(timeslot), Time.parse(timeslot[/\-.+/])
+    begin_time, end_time = Time.parse(timeslot[/.+-/]), Time.parse(timeslot[/-.+/])
     (begin_time..end_time)
   end
 
