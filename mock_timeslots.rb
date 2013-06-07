@@ -9,7 +9,7 @@ module MockTimeslots
 
   extend self
 
-  DATA = YAML.load DATA
+  DATA = YAML.load File.read(__FILE__).split(/^__END__/, 2).last
 
   def load
     DATA.
