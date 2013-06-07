@@ -60,10 +60,6 @@ __END__
     avatar_url: https://trello-avatars.s3.amazonaws.com/a9fe976d520e4c7d434c7e43ffa2fea7/170.png
   - full_name: Avalon Emerson
     avatar_url: https://trello-avatars.s3.amazonaws.com/3384c3ccbd9f7d095ebbfa358cbb9cb6/170.png
-- name: ! '* Phase 0 hangout: 4pm - 6pm'
-  members:
-  - full_name: Mac Browning
-    avatar_url: https://trello-avatars.s3.amazonaws.com/ab33cc4234d92e69e12b33a8f54284fd/170.png
 - name: 6 pm - 9 pm
   members:
   - full_name: Sam Samskies
