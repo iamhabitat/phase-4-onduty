@@ -1,13 +1,21 @@
+# Tells us whether a given timeslot name the one happening right now
+
 require 'time' # provides Time.parse
 
 # First version by github/shivamd
 
 module CurrentTimeslot
 
+  extend self
+
   def is_current_timeslot?(timeslot, current_time = Time.now)
     parse_time_boundaries(timeslot).cover?(current_time)
   rescue ArgumentError, TypeError
     false
+  end
+
+  def is?(ts, ct = Time.now)
+    is_current_timeslot? ts, ct
   end
 
   def parse_time_boundaries(timeslot)
