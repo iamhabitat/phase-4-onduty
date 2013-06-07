@@ -6,6 +6,9 @@ gem 'sinatra'
 gem 'shotgun'
 gem 'haml'
 
+# Hash to object utility
+gem 'hashugar'
+
 # Use Thin for our web server
 gem 'thin'
 
