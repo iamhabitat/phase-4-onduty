@@ -27,3 +27,9 @@ module Perlisms
   end
 
 end
+
+if $0 == __FILE__
+
+  puts Perlisms.random_quote
+
+end
